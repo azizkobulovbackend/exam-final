@@ -19,7 +19,7 @@ export class Admin {
   phone: string;
 
   @Column({ type: 'varchar', unique: true })
-  login: string;
+  email: string;
 
   @Column({ type: 'varchar' })
   password: string;

@@ -16,22 +16,22 @@ export class AdminService {
   ) {}
 
   async create(createAdminDto: CreateAdminDto, file: any) {
-    let { fullname, phone, login, password } = createAdminDto;
-    const checkAdmin = await this.adminRepository.findOneBy({ login });
+    let { fullname, phone, email, password } = createAdminDto;
+    const checkAdmin = await this.adminRepository.findOneBy({ email });
     if (checkAdmin) return 'Admin with this login already exists';
     let hashedPass = await hash(password, 12);
     let url = `http://localhost:3000/user/uploads/${file.filename}`;
     let newAdmin = await this.adminRepository.create({
       fullname,
       phone,
-      login,
+      email,
       password: hashedPass,
       photo: url
     });
     await this.adminRepository.save(newAdmin);
     let payload = {
       id: newAdmin.id,
-      login: newAdmin.login,
+      login: newAdmin.email,
       isAdmin: newAdmin.is_admin,
     };
     let token = await this.jwtService.sign(payload);

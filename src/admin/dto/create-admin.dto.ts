@@ -12,7 +12,7 @@ export class CreateAdminDto {
 
   @IsNotEmpty()
   @IsString()
-  login: string;
+  email: string;
 
   @IsNotEmpty()
   @IsString()
