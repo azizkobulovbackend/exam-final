@@ -8,6 +8,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { existsSync, mkdirSync } from 'fs';
 import { extname, join } from 'path';
+import { JwtModule } from '@nestjs/jwt';
 
 const uploadDir = join(process.cwd(), 'src/user/uploads');
 if (!existsSync(uploadDir)) {

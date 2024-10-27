@@ -26,7 +26,7 @@ export class AdminService {
       phone,
       email,
       password: hashedPass,
-      photo: url
+      photo: url,
     });
     await this.adminRepository.save(newAdmin);
     let payload = {
@@ -34,24 +34,14 @@ export class AdminService {
       login: newAdmin.email,
       isAdmin: newAdmin.is_admin,
     };
-    let token = await this.jwtService.sign(payload);
-    let data = { newAdmin, token };
+    let refresh_token = await this.jwtService.sign(payload);
+    let access_token = await this.jwtService.sign(payload, { expiresIn: '1h' });
+    let data = { newAdmin, refresh_token, access_token };
     return data;
   }
 
-  findAll() {
-    return `This action returns all admin`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} admin`;
-  }
-
-  update(id: number, updateAdminDto: UpdateAdminDto) {
-    return `This action updates a #${id} admin`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} admin`;
+  async getMyData(payload: any) {
+    const admin = await this.adminRepository.findOneBy({ id: payload.id });
+    return admin;
   }
 }

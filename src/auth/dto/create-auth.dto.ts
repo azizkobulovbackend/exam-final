@@ -23,14 +23,10 @@ export class CreateAuthDto {
   @IsString()
   password: string;
 
-  photo: any;
-
-  @IsNotEmpty()
-  @IsString()
-  birth_date: string;
-
+  
   @IsEnum(Sex)
   sex: Sex;
-
+  
+  photo: any;
 
 }
