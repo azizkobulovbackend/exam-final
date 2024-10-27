@@ -35,7 +35,7 @@ export class AdminService {
       isAdmin: newAdmin.is_admin,
     };
     let refresh_token = await this.jwtService.sign(payload);
-    let access_token = await this.jwtService.sign(payload, { expiresIn: '1h' });
+    let access_token = await this.jwtService.sign(payload);
     let data = { newAdmin, refresh_token, access_token };
     return data;
   }

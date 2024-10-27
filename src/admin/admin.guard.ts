@@ -3,7 +3,8 @@ import {
   ExecutionContext,
   Injectable,
   UnauthorizedException,
-} from '@nestjs/common';import { JwtService } from '@nestjs/jwt';
+} from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { Observable } from 'rxjs';
 import { EqualOperator } from 'typeorm';
 
@@ -16,18 +17,16 @@ export class AdminGuard implements CanActivate {
     if (!token) {
       throw new UnauthorizedException();
     }
-    const payload = await this.jwtService.verify(token, {
-      secret: 'Very Secret',
-    });console.log(payload);
-    
+    const payload = await this.jwtService.verify(token);
+
     if (!payload) {
       throw new UnauthorizedException();
     }
 
-    if(!payload.isAdmin) throw new UnauthorizedException()
+    if (!payload.isAdmin) throw new UnauthorizedException();
 
     request.payload = payload;
-    
+
     return true;
   }
 }
