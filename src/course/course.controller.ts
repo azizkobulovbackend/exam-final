@@ -9,6 +9,7 @@ import {
   Response,
   Res,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { CourseService } from './course.service';
 import { CreateCourseDto } from './dto/create-course.dto';
@@ -33,8 +34,22 @@ export class CourseController {
   }
 
   @UseGuards(AuthGuard)
+  @Post('search') 
+  search(@Query('q') query: string) {
+    return this.courseService.search(query);
+  }
+
+  @UseGuards(AuthGuard)
+  @Post('filter')
+  filter(@Query('name') name?: any, @Query('category') category?: any, @Query('level') level?: any) {
+    const filters = {name, category, level};
+    return this.courseService.filter(filters)
+  }
+
+
+  @UseGuards(AuthGuard)
   @Get(':id')
-  findOne(@Param('id') id: any) {
+  findOne(@Param('id') id: any): any {
     return this.courseService.findOne(id);
   }
 

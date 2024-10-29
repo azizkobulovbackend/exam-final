@@ -12,7 +12,7 @@ import {
 import { createClient } from 'redis';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Teacher } from 'src/teacher/entities/teacher.entity';
-import { Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { CreateCourseDto } from './dto/create-course.dto';
 import { UpdateCourseDto } from './dto/update-course.dto';
 import { Course } from './entities/course.entity';
@@ -57,16 +57,17 @@ export class CourseService {
         'teacher.photo',
         'teacher.days',
         'course',
-        'modules.name'
+        'modules.name',
       ])
       .getMany();
     return courses;
   }
 
-
-
   async findOne(id: any): Promise<Course | any> {
-    let findCourse = await this.CourseRepository.findOne({where: {id}, relations: ['teacher']})
+    let findCourse = await this.CourseRepository.findOne({
+      where: { id },
+      relations: ['teacher'],
+    });
     if (!findCourse)
       return new HttpException('Course not found', HttpStatus.NOT_FOUND);
     return findCourse;
@@ -77,7 +78,38 @@ export class CourseService {
     if (!findCourse)
       return new HttpException('Course not found', HttpStatus.NOT_FOUND);
     await this.CourseRepository.update({ id }, { ...updateCourseDto });
-    return 'Course Updated Successfully'
+    return 'Course Updated Successfully';
+  }
+
+  async search(query) {
+    const results = await this.CourseRepository.createQueryBuilder('course')
+      .where('course.name ILIKE :query OR course.description ILIKE :query', {
+        query: `%${query}%`,
+      })
+      .getMany();
+    return results;
+  }
+
+  async filter(filters: { name?; category?; level? }) {
+    const queryBulder =
+      await this.CourseRepository.createQueryBuilder('course');
+    if (filters.name) {
+      queryBulder.andWhere('course.name ILIKE :name', {
+        name: `%${filters.name}%`,
+      });
+    }
+    if (filters.category) {
+      queryBulder.andWhere('course.category = :category', {
+        category: filters.category,
+      });
+    }
+
+    if (filters.level) {
+      queryBulder.andWhere('course.level = :level', {
+        level: filters.level,
+      });
+    }
+    return queryBulder.getMany();
   }
 
   async remove(id: any) {
