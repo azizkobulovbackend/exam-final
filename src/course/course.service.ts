@@ -8,6 +8,7 @@ import {
   Res,
   Response,
   UseGuards,
+  NotFoundException,
 } from '@nestjs/common';
 import { createClient } from 'redis';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -71,6 +72,17 @@ export class CourseService {
     if (!findCourse)
       return new HttpException('Course not found', HttpStatus.NOT_FOUND);
     return findCourse;
+  }
+
+  async findModules(id: any): Promise<Course | any> {
+    const findCourse = await this.CourseRepository.findOne({
+      where: { id },
+      relations: ['modules'],
+    })
+    if (!findCourse) {
+      throw new NotFoundException(`Course with ID ${id} not found`);
+    }
+    return findCourse.modules;
   }
 
   async update(id: any, updateCourseDto: UpdateCourseDto): Promise<any> {
