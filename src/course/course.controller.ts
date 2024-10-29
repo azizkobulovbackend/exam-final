@@ -53,6 +53,14 @@ export class CourseController {
     return this.courseService.findOne(id);
   }
 
+  @UseGuards(AuthGuard)
+  @Get(':id/modules')
+  findModules(@Param('id') id: any): any {
+    return this.courseService.findModules(id);
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('id')
 
   @UseGuards(AdminGuard)
   @Patch(':id')
