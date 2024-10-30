@@ -20,6 +20,9 @@ export class Lesson {
   @Column({ type: 'varchar' })
   name: string;
 
+  @Column({ type: 'varchar' })
+  video: string
+
   @ManyToOne(() => CourseModule, (courseModule) => courseModule.lessons)
   @JoinColumn()
   module: CourseModule;
