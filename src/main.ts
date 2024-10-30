@@ -21,6 +21,11 @@ async function bootstrap() {
   );
 
   app.use(
+    '/lesson/uploads',
+    express.static(join(process.cwd(), '/src/lesson/uploads')),
+  );
+
+  app.use(
     '/user/uploads',
     express.static(join(process.cwd(), '/src/user/uploads')),
   );

@@ -36,6 +36,7 @@ export class ModuleService {
   async findAll(): Promise<CourseModule[] | any> {
     const modules = await this.ModuleRepository.createQueryBuilder('module')
       .leftJoinAndSelect('module.course', 'course')
+      .leftJoinAndSelect('module.lessons', 'lessons')
       .select([
         'module',
         'course.name',
@@ -44,6 +45,8 @@ export class ModuleService {
         'course.category',
         'course.level',
         'course.teacher',
+        'module',
+        'lessons'
       ])
       .getMany();
     return modules;
