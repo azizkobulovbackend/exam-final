@@ -7,7 +7,7 @@ import {
 } from 'class-validator';
 
 export class CreateHomeworkDto {
-  @IsOptional()
+  @IsNotEmpty()
   file: any;
 
   @IsNotEmpty()

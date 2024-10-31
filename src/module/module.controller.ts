@@ -37,6 +37,7 @@ export class ModuleController {
     return this.moduleService.findOne(id);
   }
 
+
   @UseGuards(AuthGuard)
   @Get(':id/module-results')
   findModuleResults(@Param('id') id: string) {
