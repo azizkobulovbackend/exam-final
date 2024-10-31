@@ -22,7 +22,6 @@ export class CourseModule {
   name: string;
 
   @OneToOne(() => Homework, (homework) => homework.module)
-  @JoinColumn()
   homework: Homework;
 
   @OneToMany(() => Lesson, (lesson) => lesson.module)
