@@ -1,4 +1,9 @@
-import { ConflictException, Injectable, Res, UnauthorizedException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  Res,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Response } from 'express';
 import { User } from 'src/user/entities/user.entity';
@@ -51,14 +56,19 @@ export class AuthService {
     let verify = await compare(password, user.password);
     if (!verify) throw new UnauthorizedException();
     let payload = { id: user.id, login: user.email, isAdmin: user.is_admin };
-    let refresh_token = await this.jwtService.sign(payload, {expiresIn: '7d' });
+    let refresh_token = await this.jwtService.sign(payload, {
+      expiresIn: '7d',
+    });
     let access_token = await this.jwtService.sign(payload, { expiresIn: '1h' });
-    return {user, refresh_token, access_token};
+    return { user, refresh_token, access_token };
   }
 
-
   async getMyData(payload: any) {
-    const user = await this.userRepository.findOneBy({ id: payload.id });
+    const user = await this.userRepository
+      .createQueryBuilder('user')
+      .leftJoinAndSelect('user.course', 'course')
+      .where('user.id = :id', { id: payload.id })
+      .getOne();
     return user;
   }
 }

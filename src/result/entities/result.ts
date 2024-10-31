@@ -11,7 +11,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class CheckHomework {
+export class Result {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -19,10 +19,13 @@ export class CheckHomework {
   user_id: string;
 
   @Column({ type: 'varchar' })
+  homework_id: string;
+
+  @Column({ type: 'varchar' })
   module_id: string;
 
   @Column({ type: 'varchar' })
-  course_id: string;
+  score: number;
 
   @CreateDateColumn()
   start_time: Date;
