@@ -33,6 +33,7 @@ export class CheckHomeworkController {
     return this.checkHomeworkService.update(id, updateCheckHomeworkDto);
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.checkHomeworkService.remove(+id);
