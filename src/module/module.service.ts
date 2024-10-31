@@ -66,6 +66,7 @@ export class ModuleService {
     return findModule;
   }
 
+
   async findModuleResults(id) {
     const results = await this.resultRepository.find({
       where: { module_id: id },
