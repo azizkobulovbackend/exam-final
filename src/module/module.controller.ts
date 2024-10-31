@@ -49,7 +49,6 @@ export class ModuleController {
     return this.moduleService.update(id, updateModuleDto);
   }
 
-  @UseGuards(AdminGuard)
   @Delete(':id')
   remove(@Param('id') id: any) {
     return this.moduleService.remove(id);
