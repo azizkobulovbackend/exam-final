@@ -17,6 +17,9 @@ export class Homework {
   id: string;
 
   @Column({ type: 'varchar' })
+  file: string;
+
+  @Column({ type: 'varchar' })
   description: string;
 
   @OneToOne(() => CourseModule, (module) => module.homework)
