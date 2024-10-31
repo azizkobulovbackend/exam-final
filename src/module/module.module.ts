@@ -7,9 +7,10 @@ import { Lesson } from 'src/lesson/entities/lesson.entity';
 import { Course } from 'src/course/entities/course.entity';
 import { CourseModule } from './entities/module.entity';
 import { Teacher } from 'src/teacher/entities/teacher.entity';
+import { Result } from 'src/result/entities/result';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CourseModule, Homework, Teacher, Lesson, Course])],
+  imports: [TypeOrmModule.forFeature([CourseModule, Homework, Teacher, Lesson, Course, Result])],
   controllers: [ModuleController],
   providers: [ModuleService],
 })

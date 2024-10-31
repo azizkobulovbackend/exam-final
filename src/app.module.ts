@@ -13,14 +13,14 @@ import { UserModule } from './user/user.module';
 import { Admin } from './admin/entities/admin.entity';
 import { LessonModule } from './lesson/lesson.module';
 import { HomeworkModule } from './homework/homework.module';
-import { CheckHomeworkModule } from './check-homework/check-homework.module';
 import { JwtModule } from '@nestjs/jwt';
 import { Auth } from './auth/entities/auth.entity';
 import { AuthModule } from './auth/auth.module';
 import { ModuleModule } from './module/module.module';
-import { CheckHomework } from './check-homework/entities/check-homework.entity';
 import { Homework } from './homework/entities/homework.entity';
 import { Lesson } from './lesson/entities/lesson.entity';
+import { Result } from './result/entities/result';
+import { CheckHomeworkModule } from './result/check-homework.module';
 
 @Module({
   imports: [
@@ -30,7 +30,7 @@ import { Lesson } from './lesson/entities/lesson.entity';
       port: 5432,
       password: '1234',
       username: 'postgres',
-      entities: [Course, Teacher, User, Admin, Auth, CourseModule, CheckHomework, Homework, Lesson],
+      entities: [Course, Teacher, User, Admin, Auth, CourseModule, Result, Homework, Lesson],
       database: 'course',
       synchronize: true,
       logging: true,

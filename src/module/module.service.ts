@@ -6,6 +6,7 @@ import { CourseModule } from './entities/module.entity';
 import { Repository } from 'typeorm';
 import { Teacher } from 'src/teacher/entities/teacher.entity';
 import { Course } from 'src/course/entities/course.entity';
+import { Result } from 'src/result/entities/result';
 
 @Injectable()
 export class ModuleService {
@@ -14,6 +15,8 @@ export class ModuleService {
     private readonly ModuleRepository: Repository<CourseModule>,
     @InjectRepository(Course)
     private readonly CourseRepository: Repository<Course>,
+    @InjectRepository(Result)
+    private readonly resultRepository: Repository<Result>,
   ) {}
 
   async create(createModuleDto: CreateModuleDto) {
@@ -35,9 +38,9 @@ export class ModuleService {
 
   async findAll(): Promise<CourseModule[] | any> {
     const modules = await this.ModuleRepository.createQueryBuilder('module')
-    .leftJoinAndSelect('module.course', 'course')
-    .leftJoinAndSelect('module.lessons', 'lessons')
-    .leftJoinAndSelect('module.homework', 'homework') 
+      .leftJoinAndSelect('module.course', 'course')
+      .leftJoinAndSelect('module.lessons', 'lessons')
+      .leftJoinAndSelect('module.homework', 'homework')
       .select([
         'module',
         'course.name',
@@ -47,10 +50,10 @@ export class ModuleService {
         'course.level',
         'course.teacher',
         'lessons',
-        'homework'
+        'homework',
       ])
       .getMany();
-    return modules
+    return modules;
   }
 
   async findOne(id: any): Promise<CourseModule | any> {
@@ -61,6 +64,13 @@ export class ModuleService {
     if (!findModule)
       return new HttpException('Module not found', HttpStatus.NOT_FOUND);
     return findModule;
+  }
+
+  async findModuleResults(id) {
+    const results = await this.resultRepository.find({
+      where: { module_id: id },
+    });
+    return results;
   }
 
   async update(id: any, updateModuleDto: UpdateModuleDto): Promise<any> {

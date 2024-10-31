@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { ModuleService } from './module.service';
 import { CreateModuleDto } from './dto/create-module.dto';
@@ -16,7 +17,7 @@ import { AdminGuard } from 'src/admin/admin.guard';
 
 @Controller('module')
 export class ModuleController {
-  constructor(private readonly moduleService: ModuleService) {}
+  constructor(private readonly moduleService: ModuleService,) {}
 
   @UseGuards(AdminGuard)
   @Post()
@@ -34,6 +35,12 @@ export class ModuleController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.moduleService.findOne(id);
+  }
+
+  @UseGuards(AuthGuard)
+  @Get(':id/module-results')
+  findModuleResults(@Param('id') id: string) {
+    return this.moduleService.findModuleResults(id);
   }
 
   @Patch(':id')
