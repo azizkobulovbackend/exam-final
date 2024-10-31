@@ -17,7 +17,7 @@ import { AdminGuard } from 'src/admin/admin.guard';
 
 @Controller('module')
 export class ModuleController {
-  constructor(private readonly moduleService: ModuleService,) {}
+  constructor(private readonly moduleService: ModuleService) {}
 
   @UseGuards(AdminGuard)
   @Post()
@@ -43,11 +43,13 @@ export class ModuleController {
     return this.moduleService.findModuleResults(id);
   }
 
+  @UseGuards(AdminGuard)
   @Patch(':id')
   update(@Param('id') id: any, @Body() updateModuleDto: UpdateModuleDto) {
     return this.moduleService.update(id, updateModuleDto);
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   remove(@Param('id') id: any) {
     return this.moduleService.remove(id);
