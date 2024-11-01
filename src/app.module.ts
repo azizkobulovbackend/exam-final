@@ -26,7 +26,7 @@ import { CheckHomeworkModule } from './result/check-homework.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'db',
       port: 5432,
       password: '1234',
       username: 'postgres',
