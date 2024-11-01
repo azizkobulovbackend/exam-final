@@ -1,0 +1,1573 @@
+{
+	"info": {
+		"_postman_id": "9b5d253a-cb1b-40d6-9af1-638a24601d09",
+		"name": "exam-last",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34602640"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fullname",
+									"value": "Aziz",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "1911098ak@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "sex",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Пользователь/Pictures/DSC_0268.JPG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"azizkobulovbackend@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAwNTcwNjksImV4cCI6MTczMDA2MDY2OX0.qIK1BKqG3KJKtdSxqyxbBazY3uJyGcdcRYRDoL7Sj4E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"azizkobulovbackend@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdkM2UwNTViLTQwZmQtNDhkMi1iYTQ1LWFkMzVhZDcwNjk0NyIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAwNTMyOTYsImV4cCI6MTczMDA1Njg5Nn0.jqtQ6g6ICJRbjshPk5A4-DRu8bGgFqOSvmGVQi5hdOY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"azizkobulovbackend@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDgwMzUsImV4cCI6MTczMDQxMTYzNX0.cG6lh1n_t4_x5Ncv6jXKOV0tN2abt1mZG6PcYKIQjT4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "createAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fullname",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+998997777777",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Пользователь/Pictures/20221027_101431.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fullname",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+998997777777",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Пользователь/Pictures/20221027_101431.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "findAllCourses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDgwMzUsImV4cCI6MTczMDQxMTYzNX0.cG6lh1n_t4_x5Ncv6jXKOV0tN2abt1mZG6PcYKIQjT4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAxMzY0MjMsImV4cCI6MTczMDE0MDAyM30.QmR2qKE-qsXWIR6jDmlXV-2z2YXfiLXHqUlyWwifJv8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/course/cbcddc01-7c39-4296-bf28-ee66ca596252",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course",
+								"cbcddc01-7c39-4296-bf28-ee66ca596252"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCourse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAxMTExOTAsImV4cCI6MTczMDExNDc5MH0.P0BimCrmpDwQ1bynXymlh3mF4vcOyLDTQRSW6dOU77k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Backend Node.js\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/course/cbcddc01-7c39-4296-bf28-ee66ca596252",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course",
+								"cbcddc01-7c39-4296-bf28-ee66ca596252"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findModulesofCourses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDgwMzUsImV4cCI6MTczMDQxMTYzNX0.cG6lh1n_t4_x5Ncv6jXKOV0tN2abt1mZG6PcYKIQjT4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Backend Node.js\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/course/cbcddc01-7c39-4296-bf28-ee66ca596252/modules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course",
+								"cbcddc01-7c39-4296-bf28-ee66ca596252",
+								"modules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchByName",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAyMDMwNTYsImV4cCI6MTczMDIwNjY1Nn0.xYcCNAn87zwzMfxy3m3Hd0DJmkH9AQy733ETabej7Pk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Backend Node.js\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/course/search?q=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAyMDMwNTYsImV4cCI6MTczMDIwNjY1Nn0.xYcCNAn87zwzMfxy3m3Hd0DJmkH9AQy733ETabej7Pk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Backend Node.js\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/course/filter?category=Programming&name=node&level=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Programming"
+								},
+								{
+									"key": "name",
+									"value": "node"
+								},
+								{
+									"key": "level",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCourse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAxMTExOTAsImV4cCI6MTczMDExNDc5MH0.P0BimCrmpDwQ1bynXymlh3mF4vcOyLDTQRSW6dOU77k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Backend Node.js\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/course/b86ce4f8-b2b7-4284-be21-4ad96af86e62",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course",
+								"b86ce4f8-b2b7-4284-be21-4ad96af86e62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCourse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Backend Node.js\",\r\n    \"description\": \"It is nodejs course\",\r\n    \"price\": 100,\r\n    \"category\": \"Programming\",\r\n    \"level\": \"2\",\r\n    \"teacher_id\": \"950870b8-5d9a-4292-bd5a-f99ed320d603\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teacher",
+			"item": [
+				{
+					"name": "getAllTeachers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAxMzk3ODksImV4cCI6MTczMDE0MzM4OX0.8UYEc9n8Lc11aRVziaUZZLYZdViqr3SsMZy73Gg2Ytc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createTeacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Azizbek",
+									"type": "text"
+								},
+								{
+									"key": "days",
+									"value": "even",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "Teacher",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Пользователь/Pictures/DSC_0268.JPG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teacher"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "module",
+			"item": [
+				{
+					"name": "findAllModules",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDM0NTcsImV4cCI6MTczMDQwNzA1N30.4V6bfvMybaPo2c3_GpjlMD6Yd9MYI0cOml8l0aDN9XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/module/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"module",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findModuleById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDM0NTcsImV4cCI6MTczMDQwNzA1N30.4V6bfvMybaPo2c3_GpjlMD6Yd9MYI0cOml8l0aDN9XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/module/bfe526f4-116d-4ebe-9893-59c896028961",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"module",
+								"bfe526f4-116d-4ebe-9893-59c896028961"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moduleResults",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDM0NTcsImV4cCI6MTczMDQwNzA1N30.4V6bfvMybaPo2c3_GpjlMD6Yd9MYI0cOml8l0aDN9XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/module/3b2615a4-93b3-438c-a0d7-769ec594fdee/module-results",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"module",
+								"3b2615a4-93b3-438c-a0d7-769ec594fdee",
+								"module-results"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateModule",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAxMzY0MjMsImV4cCI6MTczMDE0MDAyM30.QmR2qKE-qsXWIR6jDmlXV-2z2YXfiLXHqUlyWwifJv8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"middle\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/module/bfe526f4-116d-4ebe-9893-59c896028961",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"module",
+								"bfe526f4-116d-4ebe-9893-59c896028961"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateModule Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAxMzY0MjMsImV4cCI6MTczMDE0MDAyM30.QmR2qKE-qsXWIR6jDmlXV-2z2YXfiLXHqUlyWwifJv8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"middle\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/module/bfe526f4-116d-4ebe-9893-59c896028961",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"module",
+								"bfe526f4-116d-4ebe-9893-59c896028961"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createModule",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Start\",\r\n    \"course_id\": \"cbcddc01-7c39-4296-bf28-ee66ca596252\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/module",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"module"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lesson",
+			"item": [
+				{
+					"name": "findAllLessons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAzNjQxNjMsImV4cCI6MTczMDM2Nzc2M30.6eTqBCI9y-ipA9jg6tv25cUoUcaHeXuk_NVMXmCCT6k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/lesson",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"lesson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createLesson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lesson 1",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Пользователь/Videos/photo_2022-01-01_16-24-44.mp4"
+								},
+								{
+									"key": "module_id",
+									"value": "3b2615a4-93b3-438c-a0d7-769ec594fdee",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/lesson/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"lesson",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLesson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lesson 1",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Пользователь/Videos/photo_2022-01-01_16-24-44.mp4"
+								},
+								{
+									"key": "module_id",
+									"value": "3b2615a4-93b3-438c-a0d7-769ec594fdee",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/lesson/71b66a99-5b19-4ef2-a58b-646d1ae1a88b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"lesson",
+								"71b66a99-5b19-4ef2-a58b-646d1ae1a88b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateLesson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lesson 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/lesson/71b66a99-5b19-4ef2-a58b-646d1ae1a88b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"lesson",
+								"71b66a99-5b19-4ef2-a58b-646d1ae1a88b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lessonsOfModule",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAyODE3MjcsImV4cCI6MTczMDI4NTMyN30.za_ahh05D_QRsNXOM5y16a_XMjG0L8mm00V4OzsIV1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/lesson/3b2615a4-93b3-438c-a0d7-769ec594fdee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"lesson",
+								"3b2615a4-93b3-438c-a0d7-769ec594fdee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "homework",
+			"item": [
+				{
+					"name": "findAllHomework",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDgwMzUsImV4cCI6MTczMDQxMTYzNX0.cG6lh1n_t4_x5Ncv6jXKOV0tN2abt1mZG6PcYKIQjT4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/homework",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"homework"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findHomeworkById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAzNzc2MzYsImV4cCI6MTczMDM4MTIzNn0.f8J9hgf5-uyoggmnjHKs_CwPb9p6IxMfseObsELsFI4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/homework/f6470440-8950-4fd9-b1b6-37c70344bbb4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"homework",
+								"f6470440-8950-4fd9-b1b6-37c70344bbb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createHomework",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "file",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Пользователь/Desktop/Mahliyo mustaqil ish .docx"
+								},
+								{
+									"key": "description",
+									"value": "Homework 1",
+									"type": "text"
+								},
+								{
+									"key": "module_id",
+									"value": "3b2615a4-93b3-438c-a0d7-769ec594fdee",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/homework",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"homework"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateHomework",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "file",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Homework 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/homework/f6470440-8950-4fd9-b1b6-37c70344bbb4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"homework",
+								"f6470440-8950-4fd9-b1b6-37c70344bbb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteHomework",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "file",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Homework 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/homework/f6470440-8950-4fd9-b1b6-37c70344bbb4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"homework",
+								"f6470440-8950-4fd9-b1b6-37c70344bbb4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup-course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzAzODAwMjQsImV4cCI6MTczMDM4MzYyNH0.2_Mo9zQOQGiWkHfeU5r0BYnB-RO6jImgVBLhh3aoYp0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"course_id\": \"cbcddc01-7c39-4296-bf28-ee66ca596252\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "result",
+			"item": [
+				{
+					"name": "check-homework",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"9598bde5-d6b0-4694-b622-d04b70010634\",\r\n    \"homework_id\": \"7a5f860b-faef-4e9d-bf27-f52b4c5e434a\",\r\n    \"module_id\": \"3b2615a4-93b3-438c-a0d7-769ec594fdee\",\r\n    \"score\": 90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/result/check-homework",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"result",
+								"check-homework"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateResult",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"score\": 80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/result/9d78e5e4-f411-4fd3-ad7a-7a95666c2a3f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"result",
+								"9d78e5e4-f411-4fd3-ad7a-7a95666c2a3f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllResults",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NjUyOTVmLWY3MmItNDA3NC1hZTlmLWNlODlhOTFmYjM1NCIsImxvZ2luIjoiZW1haWxAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzMwMDU5MzQ0fQ.SGbvtEZTyEt7XswzlLyNaZWL3JETsNWSRHHkrSEmZcw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"9598bde5-d6b0-4694-b622-d04b70010634\",\r\n    \"homework_id\": \"7a5f860b-faef-4e9d-bf27-f52b4c5e434a\",\r\n    \"module_id\": \"3b2615a4-93b3-438c-a0d7-769ec594fdee\",\r\n    \"score\": 90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/result",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"result"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-results",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1OThiZGU1LWQ2YjAtNDY5NC1iNjIyLWQwNGI3MDAxMDYzNCIsImxvZ2luIjoiYXppemtvYnVsb3ZiYWNrZW5kQGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MzA0MDM0NTcsImV4cCI6MTczMDQwNzA1N30.4V6bfvMybaPo2c3_GpjlMD6Yd9MYI0cOml8l0aDN9XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"9598bde5-d6b0-4694-b622-d04b70010634\",\r\n    \"homework_id\": \"7a5f860b-faef-4e9d-bf27-f52b4c5e434a\",\r\n    \"module_id\": \"3b2615a4-93b3-438c-a0d7-769ec594fdee\",\r\n    \"score\": 90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/result/my-results",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"result",
+								"my-results"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
